@@ -1,6 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
+# ---- USER MODEL ----
+class User(AbstractUser):
+    # You can extend this later (e.g. profile_image, bio, etc.)
+    pass
+
+
+# ---- CATEGORY MODEL ----
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
@@ -8,12 +15,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
+# ---- TAG MODEL ----
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
 
+
+# ---- POST MODEL ----
 class Post(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
