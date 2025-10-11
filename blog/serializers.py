@@ -42,3 +42,4 @@ class PostSerializer(serializers.ModelSerializer):
             'category', 'category_id', 'tags', 'tag_ids',
             'created_at', 'updated_at'
         ]
+
