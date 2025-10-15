@@ -74,3 +74,4 @@ class PostCreateUpdateSerializer(serializers.ModelSerializer):
         if tag_ids is not None:
             instance.tags.set(tag_ids)
         return instance
+

@@ -42,3 +42,5 @@ class PostViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         serializer.context["request"] = self.request
         serializer.save()
+
+
