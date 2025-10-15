@@ -6,11 +6,10 @@ from .serializers import TagSerializer
 
 
 class TagViewSet(viewsets.ModelViewSet):
-queryset = Tag.objects.all()
-serializer_class = TagSerializer
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
 
-
-def get_permissions(self):
-if self.action in ['list', 'retrieve']:
-return [AllowAny()]
-return [IsAdminUser()]
+    def get_permissions(self):
+        if self.action in ["list", "retrieve"]:
+            return [AllowAny()]
+        return [IsAdminUser()]
