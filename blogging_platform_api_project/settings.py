@@ -96,7 +96,7 @@ DATABASES = {
         "NAME": os.getenv("DB_NAME", "blogdb"),
         "USER": os.getenv("DB_USER", "bloguser"),
         "PASSWORD": os.getenv("DB_PASSWORD", "blogpass"),
-        "HOST": os.getenv("DB_HOST", "db"),
+        "HOST": os.getenv("DB_HOST", "127.0.0.1"),
         "PORT": os.getenv("DB_PORT", "3306"),
         "OPTIONS": {"init_command": "SET sql_mode='STRICT_TRANS_TABLES'"},
     }
