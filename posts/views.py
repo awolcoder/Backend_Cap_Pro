@@ -12,6 +12,11 @@ from .serializers import (
 )
 from .permissions import IsAuthorOrReadOnly
 from .filters import PostFilter
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("Welcome to the Blogging Platform API!")
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -42,5 +47,3 @@ class PostViewSet(viewsets.ModelViewSet):
     def perform_update(self, serializer):
         serializer.context["request"] = self.request
         serializer.save()
-
-
