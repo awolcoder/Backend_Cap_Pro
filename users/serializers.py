@@ -2,13 +2,13 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 
-
 User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        # If you have a custom User model with a "bio" field, include it.
         fields = ("id", "username", "email", "bio")
         read_only_fields = ("id",)
 
@@ -24,7 +24,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ("username", "password", "password2", "email")
 
     def validate(self, attrs):
-        if attrs.get("password") != attrs.get("password2"):
+        if attrs["password"] != attrs["password2"]:
             raise serializers.ValidationError(
                 {"password": "Password fields didn't match."}
             )
